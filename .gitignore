@@ -12,7 +12,51 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Editor directories and files# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Local env
+.env
+.env.*
+!.env.example
+
+# IDEs / Editors
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Coverage / Testing
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
+.tmp/
+.eslintcache
+
+# Vite / React
+*.local
+vite.config.ts.timestamp*
+vite.config.js.timestamp*
 .vscode/*
 !.vscode/extensions.json
 .idea
