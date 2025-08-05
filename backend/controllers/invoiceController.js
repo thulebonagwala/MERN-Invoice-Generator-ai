@@ -51,3 +51,17 @@ exports.createInvoice = async (req, res) => {
       .json({ message: "Error creating invoice", error: error.message });
   }
 };
+
+// @desc    Get all invoices of logged-in user
+// @route   GET /api/invoices
+// @access  Private
+exports.getInvoices = async (req, res) => {
+  try {
+    const invoices = await Invoice.find({user: req.user.id}).populate("user", "name email");
+    res.json(invoices);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching invoice", error: error.message });
+  }
+};
