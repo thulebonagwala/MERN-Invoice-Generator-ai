@@ -86,3 +86,61 @@ exports.getInvoiceById = async (req, res) => {
       .json({ message: "Error fetching invoice", error: error.message });
   }
 };
+
+// @desc    Update invoice
+// @route   PUT /api/invoices/:id
+// @access  Private
+exports.updateInvoice = async (req, res) => {
+  try {
+    const {
+      invoiceNumber,
+      invoiceDate,
+      dueDate,
+      billFrom,
+      billTo,
+      items,
+      notes,
+      paymentTerms,
+      status,
+    } = req.body;
+
+    // recalculate totals if items changed
+    let subtotal = 0;
+    let taxTotal = 0;
+    if (items && items.length > 0) {
+      items.forEach((item) => {
+        subtotal += item.unitPrice * item.quantity;
+        taxTotal += ((item.unitPrice * item.quantity) * (item.taxPercent || 0)) / 100;
+      });
+    }
+
+    const total = subtotal + taxTotal;
+
+    const updatedInvoice = await Invoice.findByIdAndUpdate(
+      req.params.id,
+      {
+        invoiceNumber,
+        invoiceDate,
+        dueDate,
+        billFrom,
+        billTo,
+        items,
+        notes,
+        paymentTerms,
+        status,
+        subtotal,
+        taxTotal,
+        total,
+      },
+      { new: true }
+    );
+
+    if (!updatedInvoice) return res.status(404).json({ message: "Invoice not found" });
+
+    res.json(updatedInvoice);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error updating invoice", error: error.message });
+  }
+};
