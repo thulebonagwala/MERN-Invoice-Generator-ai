@@ -144,3 +144,18 @@ exports.updateInvoice = async (req, res) => {
       .json({ message: "Error updating invoice", error: error.message });
   }
 };
+
+// @desc    Delete invoice
+// @route   DELETE /api/invoices/:id
+// @access  Private
+exports.deleteInvoice = async (req, res) => {
+  try {
+    const invoice = await Invoice.findByIdAndDelete(req.params.id);
+    if (!invoice) return res.status(404).json({ message: "Invoice not found" });
+    res.json({ message: "Invoice deleted successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error deleting invoice", error: error.message });
+  }
+};
