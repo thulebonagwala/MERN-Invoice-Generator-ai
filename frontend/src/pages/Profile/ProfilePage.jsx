@@ -77,9 +77,9 @@ const ProfilePage = () => {
             <h4 className="text-lg font-medium text-slate-900">Business Information</h4>
             <p className="text-sm text-slate-500 mt-1 mb-4">This will be used to pre-fill the "Bill From" section of your invoices.</p>
             <div className="space-y-4">
-              <InputField label="Business Name" name="businessName" icon={Building} type="text" value={formData.businessName} onChange={handleInputChange} placeholder="Your Company LLC" />
-              <TextareaField label="Address" name="address" icon={MapPin} value={formData.address} onChange={handleInputChange} placeholder="123 Main St, Anytown, USA" />
-              <InputField label="Phone" name="phone" icon={Phone} type="tel" value={formData.phone} onChange={handleInputChange} placeholder="(555) 123-4567" />
+              <InputField label="Business Name" name="businessName" icon={Building} type="text" value={formData.businessName} onChange={handleInputChange} placeholder="Your Company (Pty) Ltd" />
+              <TextareaField label="Address" name="address" icon={MapPin} value={formData.address} onChange={handleInputChange} placeholder="123 Main St, Midrand, SA" />
+              <InputField label="Phone" name="phone" icon={Phone} type="tel" value={formData.phone} onChange={handleInputChange} placeholder="(011) 123-4567" />
             </div>
           </div>
         </div>

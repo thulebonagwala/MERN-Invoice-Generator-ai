@@ -1,7 +1,7 @@
 const { GoogleGenAI } = require("@google/genai");
 const Invoice = require("../models/Invoice");
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });// 
 
 const parseInvoiceFromText = async (req, res) => {
   const { text } = req.body;
@@ -38,7 +38,7 @@ const parseInvoiceFromText = async (req, res) => {
     `;
 
     const response = await ai.models.generateContent({
-      model: "gemini-1.5-flash-latest",
+      model: "gemini-2.5-flash-lite",//"gemini-1.5-flash-latest",
       contents: prompt,
     });
     
@@ -143,7 +143,7 @@ const getDashboardSummary = async (req, res) => {
     `;
 
     const response = await ai.models.generateContent({
-      model: "gemini-1.5-flash-latest",
+      model: "gemini-2.5-flash-lite",//"gemini-1.5-flash-latest",
       contents: prompt,
     });
 

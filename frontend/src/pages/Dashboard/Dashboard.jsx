@@ -60,13 +60,13 @@ const Dashboard = () => {
     {
       icon: DollarSign,
       label: "Total Paid",
-      value: `${stats.totalPaid.toFixed(2)}`,
+      value: `R${stats.totalPaid.toFixed(2)}`,
       color: "emerald",
     },
     {
       icon: DollarSign,
       label: "Total Unpaid",
-      value: `${stats.totalUnpaid.toFixed(2)}`,
+      value: `R${stats.totalUnpaid.toFixed(2)}`,
       color: "red",
     },
   ];
@@ -173,7 +173,7 @@ const Dashboard = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-800">
-                      ${invoice.total.toFixed(2)}
+                      R{invoice.total.toFixed(2)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span

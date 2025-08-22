@@ -216,7 +216,7 @@ const AllInvoices = () => {
                   <tr key={invoice._id} className="hover:bg-slate-50">
                     <td onClick={() => navigate(`/invoices/${invoice._id}`)} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900 cursor-pointer">{invoice.invoiceNumber}</td>
                     <td onClick={() => navigate(`/invoices/${invoice._id}`)} className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 cursor-pointer">{invoice.billTo.clientName}</td>
-                    <td onClick={() => navigate(`/invoices/${invoice._id}`)} className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 cursor-pointer">${invoice.total.toFixed(2)}</td>
+                    <td onClick={() => navigate(`/invoices/${invoice._id}`)} className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 cursor-pointer">R{invoice.total.toFixed(2)}</td>
                     <td onClick={() => navigate(`/invoices/${invoice._id}`)} className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 cursor-pointer">{moment(invoice.dueDate).format('MMM D, YYYY')}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
