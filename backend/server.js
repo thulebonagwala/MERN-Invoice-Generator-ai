@@ -25,6 +25,9 @@ connectDB();
 // Middleware
 app.use(express.json());
 
+// simple health check
+app.get("/health", (req, res) => res.json({ ok: true }));
+
 // Routes Here
 app.use("/api/auth", authRoutes);
 app.use("/api/invoices", invoiceRoutes);
